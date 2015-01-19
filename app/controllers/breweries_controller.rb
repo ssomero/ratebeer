@@ -73,4 +73,5 @@ class BreweriesController < ApplicationController
     def brewery_params
       params.require(:brewery).permit(:name, :year)
     end
+
 end

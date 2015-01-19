@@ -14,7 +14,15 @@
   <%= @beer.brewery.name %>
 </p>
 
-<%= link_to 'Edit', edit_beer_path(@beer) %> |
+<p>
+  <% if @beer.ratings.empty? %>
+    Beer hasn't been rated yet!
+    <% else %>
+        Beer has <%= @beer.ratings.size %> ratings, average <%= @beer.average_rating %>
+      <% end %>
+</p>
+
+<%= link_to 'Edit', edit_beer_path(@beer) %>
 <%= link_to 'Back', beers_path %>
 
 
