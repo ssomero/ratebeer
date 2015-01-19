@@ -4,10 +4,12 @@ class RatingsController < ApplicationController
   end
 
   def new
-  @ratings = Rating.new
+  @rating = Rating.new
+    @beers = Beer.all
   end
 
   def create
-    #redirect!
+    Rating.create params.require(:rating).permit(:score, :beer_id)
+    redirect_to ratings_path
   end
 end
