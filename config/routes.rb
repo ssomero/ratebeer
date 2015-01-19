@@ -3,6 +3,16 @@ Rails.application.routes.draw do
 
   resources :breweries
 
+  #SEURAAVA LAITETTU ITSE, PANIMOIDEN LISTASTA OLETUSKOTISIVU
+  root 'breweries#index'
+
+  #pieni kokeilu
+  get 'kaikki_bisset', to: 'beers#index'
+
+  #lisätään ratings-sivu
+  get 'ratings', to: 'ratings#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
