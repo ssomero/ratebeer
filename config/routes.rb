@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   get 'kaikki_bisset', to: 'beers#index'
 
   #lisätään ratings-sivu
-  get 'ratings', to:"ratings#index"
-  get 'ratings/new',to:"ratings#new"
-  post 'ratings', to:"ratings#create"
+ # get 'ratings', to:"ratings#index"
+  #get 'ratings/new',to:"ratings#new"
+  #post 'ratings', to:"ratings#create"
+
+  #Käytetään resources:ia
+  resources :ratings, only: [:index, :new, :create, :destroy]
 
 
 

@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :style %><br>
-    <%= f.text_field :style %>
-  </div>
-  <div class="field">
-    <%= f.label :brewery_id %><br>
-    <%= f.number_field :brewery_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <%= form_for(@beer) do |f| %>
+        <div class="form-group">
+          <div class="col-xs-4">
+            Beer: <%= f.number_field :name %> <br>
+            Style: <%= f.select :style, options_for_select(@styles) %> <br>
+            Brewery: <%= f.select :brewery, options_from_collection_for_select(@breweries, :id, :to_s) %> <br>
+          </div>
+            <%= f.submit %> <br>
+        </div>
+    <% end %>
+
+
 <% end %>
