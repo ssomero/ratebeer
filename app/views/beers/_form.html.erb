@@ -17,7 +17,7 @@
           <div class="col-xs-4">
             Beer: <%= f.number_field :name %> <br>
             Style: <%= f.select :style, options_for_select(@styles) %> <br>
-            Brewery: <%= f.select :brewery, options_from_collection_for_select(@breweries, :id, :to_s) %> <br>
+            Brewery: <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :to_s) %> <br>
           </div>
             <%= f.submit %> <br>
         </div>
