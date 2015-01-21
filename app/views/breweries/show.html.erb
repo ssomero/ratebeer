@@ -19,7 +19,7 @@
   <% if @brewery.ratings.empty? %>
       Brewery doesn't have rated beers!
   <% else %>
-      Brewery has <%= pluralize(@brewery.ratings.size, 'rating') %>, average <%= @brewery.average_rating %>
+      Brewery has <%= pluralize(@brewery.ratings.size, 'rating') %>, average <%= @brewery.rating_average %>
   <% end %>
 </p>
 

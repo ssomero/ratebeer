@@ -1,4 +1,5 @@
 class Brewery < ActiveRecord::Base
+  include RatingAverage
   has_many :beers, :dependent => :destroy
   has_many :ratings, :through => :beers
 
@@ -17,7 +18,7 @@ class Brewery < ActiveRecord::Base
     "#{self.name} (#{self.year})"
   end
 
-  def average_rating
-    self.ratings.average(:score)
-  end
+  #def average_rating
+  #  self.ratings.average(:score)
+  #end
 end
