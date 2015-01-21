@@ -1,5 +1,6 @@
 class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
+  has_many :ratings, :through => :beers
 
   def print_report
     puts self.name
@@ -14,5 +15,9 @@ class Brewery < ActiveRecord::Base
 
   def to_s
     "#{self.name} (#{self.year})"
+  end
+
+  def average_rating
+    self.ratings.average(:score)
   end
 end
