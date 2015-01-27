@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :beers
 
   resources :breweries
+
+  resource :session, only: [:new, :create, :delete]
 
   #SEURAAVA LAITETTU ITSE, PANIMOIDEN LISTASTA OLETUSKOTISIVU
   root 'breweries#index'
@@ -17,6 +21,13 @@ Rails.application.routes.draw do
   #Käytetään resources:ia
   resources :ratings, only: [:index, :new, :create, :destroy]
 
+  #lisätään users/new:lle parempi reitti
+  get 'signup', to: 'users#new'
+
+  #parempi osoite sisäänkirjautumiseen
+  get 'signin', to: 'sessions#new'
+  delete 'signout', to: 'sessions#destroy'
+  #mielummin ulkoskirjautumiseen delete kuin get-pyyntö!
 
 
   # The priority is based upon order of creation: first created -> highest priority.
