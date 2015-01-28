@@ -4,6 +4,5 @@ class Rating < ActiveRecord::Base
 
   def to_s
     "#{self.beer.name}, score #{self.score}"
-
   end
 end
