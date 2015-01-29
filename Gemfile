@@ -6,6 +6,9 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
+#secure password
+gem 'bcrypt', '~> 3.1.7'
+
 #SQLITE POIS JA SEURAAVAT TILALLE
 group :development, :test do
   gem 'sqlite3'
@@ -60,6 +63,8 @@ group :development, :test do
 
   #New adding
   gem "better_errors"
+
+
 end
 
 

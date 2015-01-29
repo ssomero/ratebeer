@@ -8,12 +8,13 @@ class SessionsController < ApplicationController
   def create
     #haetaan käyttäjä tietokannasta, jos löytyy niin ohjataan
     #omalle sivulleen
-    user = User.find_by username:params[:username]
-    if user.nil?
-      redirect_to :back
+    user = User.find_by username: params[:username]
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to user_path(user), :notice => "Welcome back!"
+
     else
-      session[:user_id] = user.id if not user.nil?
-      redirect_to :root
+      redirect_to :back, :notice => "Username and/or password mismatch"
     end
   end
   def destroy

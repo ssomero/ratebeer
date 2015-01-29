@@ -10,9 +10,10 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new params.require(:rating).permit(:score, :beer_id)
+    @rating.user = current_user
     #talletetaan sessioon
     if @rating.save
-      current_user.ratings << rating
+      current_user.ratings << @rating
       redirect_to current_user
     else
       @beers = Beer.all
@@ -23,7 +24,7 @@ class RatingsController < ApplicationController
 
   def destroy
     rating = Rating.find(params[:id])
-    rating.delete
+    rating.delete if current_user == rating.user
     redirect_to :back
   end
 end
