@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   validates :password, :format => {with: /[A-Z]+/}
   validates :password, :format => {with: /\d/}
 
+  def favorite_beer
+
+  end
 
 
 end
