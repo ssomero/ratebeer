@@ -19,7 +19,7 @@ describe "when ratings exist" do
   end
 
   it "lists ratings and the total number of ratings" do
-    save_and_open_page
+
     Rating.all.each do |score|
       expect(page).to have_content score
     end
