@@ -1,4 +1,8 @@
 require 'rails_helper'
+BeerClub
+BeerClubsController
+Membership
+MembershipsController
 
 describe "User" do
   before :each do
