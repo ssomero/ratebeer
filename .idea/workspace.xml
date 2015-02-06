@@ -33,7 +33,7 @@
       <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="27" selection-end="27" vertical-scroll-proportion="0.072231136" vertical-offset="0" max-vertical-offset="623">
+            <state line="15" column="26" selection-start="501" selection-end="501" vertical-scroll-proportion="0.36885247" vertical-offset="0" max-vertical-offset="610">
               <folding />
             </state>
           </provider>
@@ -42,7 +42,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1320">
+            <state line="59" column="31" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="710" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -788,14 +788,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="20" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+        <state line="59" column="31" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="710" max-vertical-offset="1320">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="27" selection-end="27" vertical-scroll-proportion="0.072231136" vertical-offset="0" max-vertical-offset="623">
+        <state line="15" column="26" selection-start="501" selection-end="501" vertical-scroll-proportion="0.36885247" vertical-offset="0" max-vertical-offset="610">
           <folding />
         </state>
       </provider>

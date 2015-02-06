@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.2.0
-
+- 2.2.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: iTvhlymMtSKFntfeEJcjb611brQr/Z8C4iP5D4InZ67gKlxTcvzx/VDVqbLc5WxWPf9/+M8l87PUb0LC4aTCWEQi5icSh7fJZtaQJOERsZGAptcs3tFOyAlHFZeHrY2fdGk12SA/1AAw3lVpuI50qXd7NJfIRLCITQakiQq9V+w=
+  run: "rake db:migrate"
+  app: enigmatic-depths-4092
+  on:
+    repo: ssomero/ratebeer
