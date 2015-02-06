@@ -18,13 +18,15 @@ describe "User's page" do
     create_beer_with_rating(15, user2)
 
     expect(page).to have_content "has made 2 ratings"
-    save_and_open_page
+
   end
 
   it "user can delete own ratings and they are removed from database" do
+    # find the right link with xpath, a means that it's a link, content
+    # inside [] is the conditions which is now link to rating_id 2.
+    find(:xpath, "//a[@href='/ratings/2']").click
 
-
-
+    expect(page).to have_content "has made 1 rating"
   end
 
 
