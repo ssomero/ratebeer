@@ -9,10 +9,13 @@
 </p>
 <p>Number of beers: <%=@brewery.beers.count%></p>
 
+<tbody>
+<% @brewery.beers.each do |beer| %>
 
-  <% @brewery.beers.each do |beer| %>
-    <ul> <%= link_to beer.name, beer %> </ul>
-  <% end %>
+      <td><%= link_to beer.name, beer %></td>
+
+<% end %>
+</tbody>
 
 
 <p>
@@ -23,7 +26,8 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) %>
+<%= link_to('Edit', edit_brewery_path(@brewery)) if current_user %> |
+<%= link_to('Destroy', @brewery, method: :delete, data: { confirm: 'Are you sure?' }) if current_user %>
 
 
 
