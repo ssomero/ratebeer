@@ -36,5 +36,24 @@ class User < ActiveRecord::Base
     style_average.max_by{|key, value| value}[0]
 
   end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+    score = Hash.new(0)
+    amount = Hash.new(0)
+    ratings.each do |rating|
+      amount[rating.beer.brewery] = amount[rating.beer.brewery] + 1
+      score[rating.beer.brewery] = score[rating.beer.brewery] + rating.score
+    end
+
+    brewery_average = Hash.new(0)
+    score.each do |key, value|
+      brewery_average[key] = score[key]/amount[key]
+    end
+
+    brewery_average.max_by{|key, value| value}[0]
+  end
+
+
 end
 

@@ -93,7 +93,7 @@ describe User do
       expect(user.favorite_style).to eq(beer.style)
     end
 
-    it " is the one with the most ratings if several rated" do
+    it "is the one with the highest average if several rated" do
       beer1 = FactoryGirl.create(:beer)
       beer2 = FactoryGirl.create(:beer_two)
       beer3 = FactoryGirl.create(:beer_two)
@@ -103,7 +103,40 @@ describe User do
 
       expect(user.favorite_style).to eq(beer2.style)
     end
+  end
+
+  describe "favorite brewery" do
+    let!(:user){FactoryGirl.create(:user) }
+    let!(:brewery){FactoryGirl.create(:brewery)}
+    let!(:brewery2){FactoryGirl.create(:brewery2)}
+
+    it "has method for determining one" do
+      expect(user).to respond_to(:favorite_brewery)
     end
+
+    it "without ratings does not have a favorite brewery" do
+
+      expect(user.favorite_brewery).to eq(nil)
+    end
+
+    it "is the only brewery if only one beer" do
+      beer = FactoryGirl.create(:beer, brewery:brewery)
+      rating = FactoryGirl.create(:rating, beer:beer, user:user)
+
+      expect(user.favorite_brewery).to eq(beer.brewery)
+    end
+
+    it "is the one with the highest average if several rated" do
+      beer1 = FactoryGirl.create(:beer, brewery:brewery)
+      beer2 = FactoryGirl.create(:beer_two, brewery:brewery2)
+      beer3 = FactoryGirl.create(:beer_two, brewery:brewery2)
+      rating1 = FactoryGirl.create(:rating, beer:beer1, user:user)
+      rating2 = FactoryGirl.create(:rating, score:40, beer:beer2, user:user)
+      rating3 = FactoryGirl.create(:rating, beer:beer3, user:user)
+
+      expect(user.favorite_brewery).to eq(beer2.brewery)
+    end
+  end
 
   def create_beer_with_rating(score, user)
     beer = FactoryGirl.create(:beer)

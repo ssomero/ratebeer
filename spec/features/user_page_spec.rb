@@ -29,6 +29,22 @@ describe "User's page" do
     expect(page).to have_content "has made 1 rating"
   end
 
+  it "has favorite beer, brewery and style if rated" do
+    user = FactoryGirl.create(:user, username:"Topi", password:"Top1", password_confirmation:"Top1")
+    brewery = FactoryGirl.create(:brewery)
+    brewery2 = FactoryGirl.create(:brewery2)
+    beer1 = FactoryGirl.create(:beer, brewery:brewery)
+    beer2 = FactoryGirl.create(:beer_two, brewery:brewery2)
+    beer3 = FactoryGirl.create(:beer_two, brewery:brewery2)
+    rating1 = FactoryGirl.create(:rating, beer:beer1, user:user)
+    rating2 = FactoryGirl.create(:rating, score:40, beer:beer2, user:user)
+    rating3 = FactoryGirl.create(:rating, beer:beer3, user:user)
+    visit user_path(user)
+
+    expect(page).to have_content "favorite style is IPA"
+    expect(page).to have_content "favorite brewery is anonymous2"
+    expect(page).to have_content "favorite beer is anonymous2 "
+  end
 
 end
 
