@@ -19,5 +19,22 @@ class User < ActiveRecord::Base
     ratings.order(score: :desc).limit(1).first.beer
   end
 
+  def favorite_style
+    return nil if ratings.empty?
+    score = Hash.new(0)
+    amount = Hash.new(0)
+    ratings.each do |rating|
+      amount[rating.beer.style] = amount[rating.beer.style] + 1
+      score[rating.beer.style] = score[rating.beer.style] + rating.score
+    end
 
+    style_average = Hash.new(0)
+    score.each do |key, value|
+      style_average[key] = score[key]/amount[key]
+    end
+
+    style_average.max_by{|key, value| value}[0]
+
+  end
 end
+

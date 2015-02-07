@@ -11,7 +11,6 @@ describe "Beer" do
 
     it "is added if name is valid" do
       visit new_beer_path
-      save_and_open_page
       fill_in('beer_name', with:'Koff')
 
 

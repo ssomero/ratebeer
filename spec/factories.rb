@@ -20,6 +20,12 @@ FactoryGirl.define do
     style "Lager"
   end
 
+  factory :beer_two, class: Beer do
+    name "anonymous2"
+    brewery
+    style "IPA"
+  end
+
   factory :rating2, class: Rating do
     score 20
   end
