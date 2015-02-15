@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   #mielummin ulkoskirjautumiseen delete kuin get-pyyntö!
 
-  get 'places', to: 'places#index'
+
+  # To search and show restaurants
+  resources :places, only:[:index, :show]
+  # get 'places', to: 'places#index'
   post 'places', to: 'places#search'
 
 

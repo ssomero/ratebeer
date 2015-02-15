@@ -16,8 +16,8 @@
         <div class="form-group">
           <div class="col-xs-4">
             Beer: <%= f.text_field :name %> <br>
-            Style: <%= f.select :style, options_for_select(@styles) %> <br>
-            Brewery: <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :to_s) %> <br>
+            Style: <%= f.select :style, options_for_select(@styles, selected: @beer.style) %> <br>
+            Brewery: <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :to_s, selected: @beer.brewery_id) %> <br>
           </div>
             <%= f.submit %> <br>
         </div>

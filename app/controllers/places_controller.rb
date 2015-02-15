@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
     if @places.empty?
       redirect_to places_path, notice: "No locations in #{params[:city]}"
     else
+      #session[:last_search] =
       render :index
     end
   end
