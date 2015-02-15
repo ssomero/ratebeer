@@ -1,0 +1,7 @@
+<h2> <%= @place.name %> </h2>
+
+<p><%= @place.street %></p>
+<p><%= @place.zip%> <%= @place.city %></p>
+
+<iframe width="400" height="300" frameborder="1" style="border:1" src="https://www.google.com/maps/embed/v1/place?q=<%= @place.street%>+<%= @place.city %>+<%= @place.country%>&key=AIzaSyBCNlDUZBQR_dTs9iZB_0sHVebdUMUZfLU"></iframe>
+
