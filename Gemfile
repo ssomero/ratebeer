@@ -9,6 +9,12 @@ gem 'rails', '4.2.0'
 #secure password
 gem 'bcrypt', '~> 3.1.7'
 
+#bootstrap
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
 #SQLITE POIS JA SEURAAVAT TILALLE
 group :development, :test do
   gem 'sqlite3'
