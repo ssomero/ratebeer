@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130104527) do
+ActiveRecord::Schema.define(version: 20150222134839) do
+
+  create_table "Memberships", force: :cascade do |t|
+    t.integer  "beer_club_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "beer_clubs", force: :cascade do |t|
     t.string   "name"
@@ -34,13 +41,7 @@ ActiveRecord::Schema.define(version: 20150130104527) do
     t.integer  "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "memberships", force: :cascade do |t|
-    t.integer  "beer_club_id"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "active"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150130104527) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.boolean  "admin"
   end
 
 end

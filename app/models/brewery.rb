@@ -7,6 +7,9 @@ class Brewery < ActiveRecord::Base
                                      :less_than_or_equal_to => 2015}
   validates :name, :presence => true
 
+  scope :active, -> { where active:true }
+  scope :retired, -> { where active:[nil, false] }
+
 
 
   def print_report
