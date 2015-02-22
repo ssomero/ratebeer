@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @user.username %></h2>
+<h2><%= @user.username %>
+  <% unless @user.active? %>
+      <span class="label label-info">account frozen</span>
+  <%end%>
+</h2>
 
 <p>
   <% if @user.ratings.empty? %>
@@ -10,11 +14,37 @@
   <% end %>
 </p>
 
+
+
 <% unless @user.ratings.empty? %>
 <p><%= @user.username%>'s favorite style is <%= @user.favorite_style%></p>
 <p><%= @user.username%>'s favorite brewery is <%= @user.favorite_brewery.name%></p>
     <p><%= @user.username%>'s favorite beer is <%= @user.favorite_beer.name%></p>
 <% end %>
+
+<% if is_admin %>
+    <% if @user.active? %>
+        <%= form_for(@user) do |f|%>
+
+
+            <%= f.hidden_field :active %>
+            <%= f.hidden_field :id %>
+
+            <%= f.submit value:"Freeze user", class:"btn btn-danger"%>
+
+        <% end %>
+    <% else %>
+        <%= form_for(@user) do |f|%>
+
+                <%= f.hidden_field :active %>
+                <%= f.hidden_field :id %>
+
+                <%= f.submit value:"Activate user", class:"btn btn-success"%>
+
+            <% end %>
+
+    <% end %>
+    <% end %>
 
 <p><h3>Ratings</h3>
 <table class="table">

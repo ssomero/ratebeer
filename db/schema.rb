@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222134839) do
+ActiveRecord::Schema.define(version: 20150222155222) do
 
   create_table "Memberships", force: :cascade do |t|
     t.integer  "beer_club_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150222134839) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.boolean  "admin"
+    t.boolean  "active"
   end
 
 end
