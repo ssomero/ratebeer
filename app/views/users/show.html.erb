@@ -17,14 +17,22 @@
 <% end %>
 
 <p><h3>Ratings</h3>
-<ul><% @user.ratings.each do |rating| %>
-      <li><%= rating.to_s %>
+<table class="table">
+
+<% @user.ratings.each do |rating| %>
+      <tr>
+      <td><%= rating.to_s %>
         <% if @user == current_user %>
-            <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to rating, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+
         <% end %>
-      </li>
+      </td>
+      </tr>
   <% end %>
-</ul>
+
+</table>
 </p>
 
 <p><h3>Memberships</h3>

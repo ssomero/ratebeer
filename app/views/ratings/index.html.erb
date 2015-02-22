@@ -2,11 +2,18 @@
 
 <p> Number of ratings: <%= @ratings.count %> </p>
 
-
+<table class="table">
+  <tbody>
   <% @ratings.each do |rating| %>
-    <li><%= rating.to_s %> <%= link_to rating.user.username, rating.user%></li>
+    <tr>
+    <td><%= rating.to_s %> </td>
+    <td> <%= link_to rating.user.username, rating.user %></td>
+      </tr>
   <% end %>
+  </tbody>
+</table>
 <% if not current_user.nil? %>
 
-<%= link_to "Create new rating", new_rating_path , class:"btn btn-success"%>
-<% end %>
+    <%= link_to "Create new rating", new_rating_path , class:"btn btn-success"%>
+    <% end %>
+

@@ -29,12 +29,12 @@
     <%= form_for(@rating) do |f| %>
         <%= f.hidden_field :beer_id %>
         score: <%= f.number_field :score %>
-        <%=f.submit class:"btn btn-primary"%>
+        <%=f.submit class:"btn btn-success"%>
     <% end %>
 
 <br>
-    <%= link_to('Edit', edit_beer_path(@beer)) %> |
-    <%= link_to('Destroy', @beer, method: :delete, data: { confirm: 'Are you sure?' })  %>
+    <%= link_to('Edit', edit_beer_path(@beer), class:"btn btn-primary") %>
+    <%= link_to('Destroy', @beer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger")  %>
 <% end %>
 
 
