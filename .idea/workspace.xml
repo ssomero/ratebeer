@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e12a3d-9d0c-4a8f-a4e6-9a61870d7f19" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/breweries/_list.html.erb" afterPath="$PROJECT_DIR$/app/views/breweries/_list.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/beers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/beers_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/breweries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/breweries_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/beers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/beers/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/breweries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/breweries/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +55,7 @@
       <file leaf-file-name="application.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="5" selection-start="648" selection-end="648" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="471">
+            <state line="12" column="4" selection-start="647" selection-end="647" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="471">
               <folding />
             </state>
           </provider>
@@ -728,7 +721,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="648" selection-end="648" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="471">
+        <state line="12" column="4" selection-start="647" selection-end="647" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="471">
           <folding />
         </state>
       </provider>
