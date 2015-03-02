@@ -40,6 +40,14 @@ class User < ActiveRecord::Base
 
   end
 
+  def is_frozen
+    unless active == true
+      return true
+    else
+      return false
+    end
+  end
+
   def favorite_brewery
     return nil if ratings.empty?
     score = Hash.new(0)

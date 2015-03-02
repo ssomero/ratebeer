@@ -12,24 +12,30 @@ class BreweriesController < ApplicationController
 
     order = params[:order] || 'name'
 
+    if session[:direction] == nil?
+      session[:direction] = "ASC"
+    else if session[:direction] == "ASC"
+           session[:direction] = "DESC"
+         else
+           session[:direction] = "ASC"
+
+         end
+    end
+
     @active_breweries = case order
-    #order("UPPER(name) ASC")
-
-                          when 'name' then @active_breweries.order("UPPER(name) ASC")
 
 
-                          when 'year' then @active_breweries.order("year ASC")
+                          when 'name' then @active_breweries.order("UPPER(name) #{session[:direction]}")
 
-      when 'name' then @active_breweries.order("UPPER(name) DESC")
-      session[:ord] = "asc"
-      when 'year' then @active_breweries.order("year DESC")
+
+                          when 'year' then @active_breweries.order("year  #{session[:direction]}")
 
                         end
 
     @retired_breweries = case order
-                          when 'name' then @retired_breweries.order("UPPER(name) ASC")
-                          when 'year' then @retired_breweries.order("year ASC")
-                        end
+                           when 'name' then @retired_breweries.order("UPPER(name) #{session[:direction]}")
+                           when 'year' then @retired_breweries.order("year  #{session[:direction]}")
+                         end
   end
 
   # GET /breweries/1
@@ -87,15 +93,15 @@ class BreweriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_brewery
-      @brewery = Brewery.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_brewery
+    @brewery = Brewery.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def brewery_params
-      params.require(:brewery).permit(:name, :year, :active)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def brewery_params
+    params.require(:brewery).permit(:name, :year, :active)
+  end
 
 
 
