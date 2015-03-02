@@ -13,13 +13,22 @@ class BreweriesController < ApplicationController
     order = params[:order] || 'name'
 
     @active_breweries = case order
-                  when 'name' then @active_breweries.sort_by{ |b| b.name }
-                  when 'year' then @active_breweries.sort_by{ |b| b.year }
+    #order("UPPER(name) ASC")
+
+                          when 'name' then @active_breweries.order("UPPER(name) ASC")
+
+
+                          when 'year' then @active_breweries.order("year ASC")
+
+      when 'name' then @active_breweries.order("UPPER(name) DESC")
+      session[:ord] = "asc"
+      when 'year' then @active_breweries.order("year DESC")
+
                         end
 
     @retired_breweries = case order
-                          when 'name' then @retired_breweries.sort_by{ |b| b.name }
-                          when 'year' then @retired_breweries.sort_by{ |b| b.year }
+                          when 'name' then @retired_breweries.order("UPPER(name) ASC")
+                          when 'year' then @retired_breweries.order("year ASC")
                         end
   end
 

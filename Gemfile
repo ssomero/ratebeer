@@ -15,6 +15,8 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'rack-mini-profiler'
+
 #SQLITE POIS JA SEURAAVAT TILALLE
 group :development, :test do
   gem 'sqlite3'
